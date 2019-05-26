@@ -10,8 +10,8 @@ defmodule FastFoodBackend.Product do
     field :price, :decimal
     field :quantity_limit, :integer
     field :description, :string
-    field :photoUrl, :string
-    field :thumbnailUrl, :string
+    field :photo_url, :string
+    field :thumbnail_url, :string
 
     many_to_many :orders, Order, join_through: "order_products"
   end
@@ -37,7 +37,7 @@ defmodule FastFoodBackend.Product do
 
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :price, :quantity_limit, :description, :photoUrl, :thumbnailUrl])
-    |> validate_required([:name, :price, :quantity_limit, :description, :photoUrl, :thumbnailUrl])
+    |> cast(attrs, [:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
+    |> validate_required([:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
   end
 end

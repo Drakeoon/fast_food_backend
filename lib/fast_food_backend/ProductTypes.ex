@@ -10,8 +10,8 @@ defmodule FastFoodBackend.Schema.ProductTypes do
     field :price, :decimal
     field :quantity_limit, :integer
     field :description, :string
-    field :photoUrl, :string
-    field :thumbnailUrl, :string
+    field :photo_url, :string
+    field :thumbnail_url, :string
 
     # TODO: many to many relationship
   end
@@ -28,8 +28,8 @@ defmodule FastFoodBackend.Schema.ProductTypes do
       arg(:price, non_null(:decimal))
       arg(:quantity_limit, non_null(:integer))
       arg(:description, non_null(:string))
-      arg(:photoUrl, non_null(:string))
-      arg(:thumbnailUrl, non_null(:string))
+      arg(:photo_url, non_null(:string))
+      arg(:thumbnail_url, non_null(:string))
 
       resolve(&Resolvers.ProductResolver.create/3)
     end

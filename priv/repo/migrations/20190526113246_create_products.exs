@@ -7,8 +7,8 @@ defmodule FastFoodBackend.Repo.Migrations.CreateProducts do
       add :price, :decimal, precision: 6, scale: 2
       add :quantity_limit, :integer, default: 99
       add :description, :text
-      add :photoUrl, :string
-      add :thumbnailUrl, :string
+      add :photo_url, :string
+      add :thumbnail_url, :string
 
       timestamps()
     end
