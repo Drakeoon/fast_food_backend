@@ -1,4 +1,4 @@
-defmodule FastFoodBackend.Resolvers.ProductResolver do
+defmodule FastFoodBackendWeb.Resolvers.ProductResolver do
   alias FastFoodBackend.Product
 
   def list(_parent, _args, _resolutions) do

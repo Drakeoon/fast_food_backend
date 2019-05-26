@@ -2,7 +2,7 @@ defmodule FastFoodBackend.Schema.ProductTypes do
   use Absinthe.Schema.Notation
   use Absinthe.Ecto, repo: Socializer.Repo
 
-  alias SocializerWeb.Resolvers
+  alias FastFoodBackendWeb.Resolvers
 
   object :product do
     field :id, :id
