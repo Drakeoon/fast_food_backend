@@ -1,6 +1,8 @@
 defmodule FastFoodBackendWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :fast_food_backend
 
+  plug CORSPlug
+
   socket "/socket", FastFoodBackendWeb.UserSocket,
     websocket: true,
     longpoll: false
