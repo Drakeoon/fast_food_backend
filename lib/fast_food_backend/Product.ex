@@ -13,6 +13,8 @@ defmodule FastFoodBackend.Product do
     field :photo_url, :string
     field :thumbnail_url, :string
 
+    timestamps()
+
     many_to_many :orders, Order, join_through: "order_products"
   end
 
@@ -39,5 +41,6 @@ defmodule FastFoodBackend.Product do
     product
     |> cast(attrs, [:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
     |> validate_required([:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
+    |> unique_constraint(:name)
   end
 end

@@ -72,4 +72,4 @@ config :fast_food_backend, FastFoodBackend.Repo,
   password: "postgres",
   database: "fast_food_backend_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 2

@@ -12,8 +12,8 @@ config :fast_food_backend,
 
 # Configures the endpoint
 config :fast_food_backend, FastFoodBackendWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "qWRol+Xk8k0OW7Vhff/LS9cTZXQWMjHou4DnxW+lTA+bF8MjufabLXlZ1VH/VF9o",
+  url: [host: System.get_env("HOST_URL")],
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: FastFoodBackendWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: FastFoodBackend.PubSub, adapter: Phoenix.PubSub.PG2]
 

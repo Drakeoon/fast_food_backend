@@ -12,5 +12,7 @@ defmodule FastFoodBackendWeb.Resolvers.ProductResolver do
     end
   end
 
-  # TODO: Create product
+  def create(_parent, args, _resolutions) do
+    Product.create(args)
+  end
 end
