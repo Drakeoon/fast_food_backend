@@ -32,6 +32,11 @@ defmodule FastFoodBackend.Product do
     |> Repo.insert()
   end
 
+  def remove(id) do
+    Repo.get(__MODULE__, id)
+    |> Repo.delete
+  end
+
   def changeset(attrs) do
     %__MODULE__{}
     |> changeset(attrs)

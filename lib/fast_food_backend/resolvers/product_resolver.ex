@@ -15,4 +15,11 @@ defmodule FastFoodBackendWeb.Resolvers.ProductResolver do
   def create(_parent, args, _resolutions) do
     Product.create(args)
   end
+
+  def remove(_parent, args, _resolutions) do
+    case Product.find(args[:id]) do
+      nil -> {:error, "Not found"}
+      post -> Product.remove(post.id)
+    end
+  end
 end

@@ -33,6 +33,12 @@ defmodule FastFoodBackend.Schema.ProductTypes do
 
       resolve(&Resolvers.ProductResolver.create/3)
     end
+
+    field :remove_product, :product do
+      arg(:id, non_null(:string))
+
+      resolve(&Resolvers.ProductResolver.remove/3)
+    end
   end
 
   object :product_subscriptions do
