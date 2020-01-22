@@ -11,7 +11,7 @@ defmodule FastFoodBackend.Application do
       # Start the Ecto repository
       FastFoodBackend.Repo,
       # Start the endpoint when the application starts
-      FastFoodBackendWeb.Endpoint
+      FastFoodBackendWeb.Endpoint,
       # Starts a worker by calling: FastFoodBackend.Worker.start_link(arg)
       # {FastFoodBackend.Worker, arg},
     ]

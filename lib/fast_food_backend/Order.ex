@@ -1,7 +1,5 @@
 defmodule FastFoodBackend.Order do
   use Ecto.Schema
-  import Ecto.Changeset
-  import Ecto.Query
 
   alias FastFoodBackend.{Repo, Product}
 

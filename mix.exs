@@ -20,7 +20,7 @@ defmodule FastFoodBackend.MixProject do
   def application do
     [
       mod: {FastFoodBackend.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ex_aws, :hackney]
     ]
   end
 
@@ -41,13 +41,14 @@ defmodule FastFoodBackend.MixProject do
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
+      {:jason, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},
-      {:absinthe, "~> 1.4"},
-      {:absinthe_ecto, "~> 0.1.3"},
-      {:absinthe_phoenix, "~> 1.4.0"},
-      {:absinthe_plug, "~> 1.4"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:uuid, "~> 1.1"},
+      {:poison, "~> 4.0"}
     ]
   end
 
