@@ -5,11 +5,9 @@ defmodule FastFoodBackendWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/" do
+  scope "/api", FastFoodBackendWeb do
     pipe_through :api
 
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: FastFoodBackend.Schema
-
-    forward "/", Absinthe.Plug, schema: FastFoodBackend.Schema
+    resources "/products", ProductController
   end
 end
