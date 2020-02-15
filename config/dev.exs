@@ -11,15 +11,7 @@ config :fast_food_backend, FastFoodBackendWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
-  ]
+  watchers: []
 
 # ## SSL Support
 #
@@ -72,4 +64,4 @@ config :fast_food_backend, FastFoodBackend.Repo,
   password: "postgres",
   database: "fast_food_backend_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 2

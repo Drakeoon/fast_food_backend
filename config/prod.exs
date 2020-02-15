@@ -11,11 +11,24 @@ use Mix.Config
 # before starting your production server.
 config :fast_food_backend, FastFoodBackendWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
+  url: [host: System.get_env("HOST_URL"), port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+# config :fast_food_backend, FastFoodBackendWeb.Repo,
+#        adapter: Ecto.Adapters.Postgres,
+#        url: System.get_env("DATABASE_URL"),
+#        ssl: true,
+#        pool_size: 2
+
+config :fast_food_backend, FastFoodBackend.Repo,
+  username: System.get_env("DATABASE_USERNAME"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  database: System.get_env("DATABASE"),
+  hostname: System.get_env("DATABASE_URL"),
+  pool_size: 2
 
 # ## SSL Support
 #
@@ -68,4 +81,3 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
