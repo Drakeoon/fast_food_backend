@@ -9,3 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+Code.require_file("seeds/database_seeder.exs", __DIR__)
+
+alias FastFoodBackend.DatabaseSeeder
+
+DatabaseSeeder.clean_database()
+
+Enum.each(0..9, fn _ -> DatabaseSeeder.insert_product() end)

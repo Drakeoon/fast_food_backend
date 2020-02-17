@@ -54,6 +54,10 @@ defmodule FastFoodBackend.Products do
   """
   def get_product!(id), do: Repo.get!(Product, id)
 
+  def find_product!(query), do: Repo.get_by!(Product, query)
+  
+  def find_product(query), do: Repo.get_by(Product, query)
+
   @doc """
   Creates a product.
 
