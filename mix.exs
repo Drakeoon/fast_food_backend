@@ -51,6 +51,7 @@ defmodule FastFoodBackend.MixProject do
       {:poison, "~> 4.0"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:faker, "~> 0.13"},
+      {:jsonapi, "~> 1.2.0"},
     ]
   end
 
