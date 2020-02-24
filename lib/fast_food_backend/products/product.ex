@@ -21,7 +21,7 @@ defmodule FastFoodBackend.Products.Product do
   def changeset(product, attrs) do
     product
     |> cast(attrs, [:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
-    |> validate_required([:name, :priceZ, :quantity_limit, :description, :photo_url, :thumbnail_url])
+    |> validate_required([:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
     |> unique_constraint(:name)
   end
 end
