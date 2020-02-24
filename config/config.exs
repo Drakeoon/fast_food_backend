@@ -25,6 +25,8 @@ config :logger, :console,
 config :phoenix, :format_encoders,
   json: Jason
 
+config :jsonapi,
+  field_transformation: :dasherize
 
 # AWS S3 config
 config :ex_aws,
