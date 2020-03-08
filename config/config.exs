@@ -25,6 +25,12 @@ config :logger, :console,
 config :phoenix, :format_encoders,
   json: Jason
 
+config :jsonapi,
+  field_transformation: :dasherize,
+  namespace: "/api",
+  remove_links: false,
+  json_library: Jason,
+  paginator: nil
 
 # AWS S3 config
 config :ex_aws,

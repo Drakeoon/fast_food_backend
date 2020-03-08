@@ -10,28 +10,49 @@ Heavily inspired by https://github.com/schneidmaster/socializer.
 
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+- Install dependencies with `mix deps.get`
+- Create and migrate your database with `mix ecto.setup`
+- Start Phoenix endpoint with `mix phx.server`
 
-Visit `http://localhost:4000/graphiql` to open GraphiQL workspace, where you can try GraphQL queries out!
+# Support JSON:API standard
+
+You need to include these headers in _POST_ requests:
+
+- `Content-Type: application/vnd.api+json`
+- `Accept: application/vnd.api+json`
 
 Example query:
+_GET_: `/api/products`
 
-```
-query {
-  products {
-    name
-    price
-    description
-  }
+```json
+{
+  "data": [
+    {
+      "attributes": {
+        "description": "A very tasty burger straight from the state of Kentucky",
+        "id": 183,
+        "name": "Texas Grander 2",
+        "photo-url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80",
+        "price": "19.99",
+        "quantity-limit": 99,
+        "thumbnail-url": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=50"
+      },
+      "id": "183",
+      "links": {
+        "self": "http://localhost/api/products/183"
+      },
+      "relationships": {},
+      "type": "products"
+    }, {
+      ...
+    },
+  ]
 }
 ```
 
-## Learn more
+Same goes with:
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+- _GET_: `/api/products/{PRODUCT_ID}`
+- _POST_: `/api/products`
+- _PUT_: `/api/products/{PRODUCT_ID}`
+- _DELETE_: `/api/products/{PRODUCT_ID}`

@@ -2,7 +2,8 @@ defmodule FastFoodBackendWeb.Router do
   use FastFoodBackendWeb, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(JSONAPI.EnsureSpec)
+    plug(JSONAPI.UnderscoreParameters)
   end
 
   scope "/api", FastFoodBackendWeb do
