@@ -1,4 +1,4 @@
-# FastFoodBackend
+# FastFoodBackend 🌭
 
 This is the backend for https://github.com/AlanPieczonka/fast-food-frontend
 
@@ -6,7 +6,7 @@ It's written in Phoenix with addition of Absinthe to support GraphQL queries.
 
 Heavily inspired by https://github.com/schneidmaster/socializer.
 
-# Setup
+# Setup 🧳
 
 To start your Phoenix server:
 
@@ -14,7 +14,7 @@ To start your Phoenix server:
 - Create and migrate your database with `mix ecto.setup`
 - Start Phoenix endpoint with `mix phx.server`
 
-# Support JSON:API standard
+# Supports JSON:API standard 🚀
 
 You need to include these headers in _POST_ requests:
 
