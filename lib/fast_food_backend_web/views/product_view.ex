@@ -9,7 +9,8 @@ defmodule FastFoodBackendWeb.ProductView do
       :photo_url,
       :price,
       :quantity_limit,
-      :thumbnail_url
+      :thumbnail_url,
+      :active
     ]
   end
 end

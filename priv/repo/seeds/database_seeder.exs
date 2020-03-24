@@ -15,6 +15,7 @@ defmodule FastFoodBackend.DatabaseSeeder do
       description: Faker.Food.description(),
       price: Faker.random_between(9, 129) + 0.99,
       quantity_limit: Faker.random_between(10, 100),
+      active: true
     }
 
     Repo.insert!(product)

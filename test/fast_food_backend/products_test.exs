@@ -6,9 +6,9 @@ defmodule FastFoodBackend.ProductsTest do
   describe "products" do
     alias FastFoodBackend.Products.Product
 
-    @valid_attrs %{description: "some description", name: "some name", photo_url: "some photo_url", price: "120.5", quantity_limit: 42, thumbnail_url: "some thumbnail_url"}
-    @update_attrs %{description: "some updated description", name: "some updated name", photo_url: "some updated photo_url", price: "456.7", quantity_limit: 43, thumbnail_url: "some updated thumbnail_url"}
-    @invalid_attrs %{description: nil, name: nil, photo_url: nil, price: nil, quantity_limit: nil, thumbnail_url: nil}
+    @valid_attrs %{description: "some description", name: "some name", photo_url: "some photo_url", price: "120.5", quantity_limit: 42, thumbnail_url: "some thumbnail_url", active: true}
+    @update_attrs %{description: "some updated description", name: "some updated name", photo_url: "some updated photo_url", price: "456.7", quantity_limit: 43, thumbnail_url: "some updated thumbnail_url", active: false}
+    @invalid_attrs %{description: nil, name: nil, photo_url: nil, price: nil, quantity_limit: nil, thumbnail_url: nil, active: nil}
 
     def product_fixture(attrs \\ %{}) do
       {:ok, product} =
@@ -37,6 +37,7 @@ defmodule FastFoodBackend.ProductsTest do
       assert product.price == Decimal.new("120.5")
       assert product.quantity_limit == 42
       assert product.thumbnail_url == "some thumbnail_url"
+      assert product.active == true
     end
 
     test "create_product/1 with invalid data returns error changeset" do
@@ -52,6 +53,7 @@ defmodule FastFoodBackend.ProductsTest do
       assert product.price == Decimal.new("456.7")
       assert product.quantity_limit == 43
       assert product.thumbnail_url == "some updated thumbnail_url"
+      assert product.active == false
     end
 
     test "update_product/2 with invalid data returns error changeset" do
