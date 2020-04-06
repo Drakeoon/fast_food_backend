@@ -11,6 +11,7 @@ defmodule FastFoodBackend.Products.Product do
     field :price, :decimal
     field :quantity_limit, :integer
     field :thumbnail_url, :string
+    field :active, :boolean
 
     timestamps()
 
@@ -20,8 +21,8 @@ defmodule FastFoodBackend.Products.Product do
   @doc false
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
-    |> validate_required([:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url])
+    |> cast(attrs, [:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url, :active])
+    |> validate_required([:name, :price, :quantity_limit, :description, :photo_url, :thumbnail_url, :active])
     |> unique_constraint(:name)
   end
 end
