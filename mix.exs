@@ -52,6 +52,8 @@ defmodule FastFoodBackend.MixProject do
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:faker, "~> 0.13"},
       {:jsonapi, "~> 1.2.0"},
+      {:guardian, "~> 1.2.1"},
+      {:httpoison, "~> 1.5"}
     ]
   end
 
