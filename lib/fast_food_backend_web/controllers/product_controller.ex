@@ -12,7 +12,7 @@ defmodule FastFoodBackendWeb.ProductController do
     render(conn, ProductView, "index.json", %{data: products})
   end
 
-  def create(conn, %{"data" => product_params}) do
+  def create(conn, %{"data" => %{"attributes" => product_params}}) do
     with {:ok, %Product{} = product} <- Products.create_product(product_params) do
       conn
       |> put_status(:created)
@@ -26,7 +26,7 @@ defmodule FastFoodBackendWeb.ProductController do
     render(conn, ProductView, "show.json", %{data: product})
   end
 
-  def update(conn, %{"id" => id, "product" => product_params}) do
+  def update(conn, %{"id" => id, "data" => %{"attributes" => product_params}}) do
     product = Products.get_product!(id)
 
     with {:ok, %Product{} = product} <- Products.update_product(product, product_params) do
