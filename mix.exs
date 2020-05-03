@@ -48,7 +48,7 @@ defmodule FastFoodBackend.MixProject do
       {:ex_aws_s3, "~> 2.0"},
       {:hackney, "~> 1.9"},
       {:uuid, "~> 1.1"},
-      {:poison, "~> 4.0"},
+      {:poison, "~> 3.1"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:faker, "~> 0.13"},
       {:jsonapi, "~> 1.2.0"},
