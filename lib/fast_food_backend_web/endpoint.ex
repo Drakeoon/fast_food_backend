@@ -1,6 +1,10 @@
 defmodule FastFoodBackendWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :fast_food_backend
 
+  socket "/socket", FastFoodBackendWeb.UserSocket,
+    websocket: true,
+    longpoll: false
+
   plug CORSPlug
 
   # Serve at "/" the static files from "priv/static" directory.

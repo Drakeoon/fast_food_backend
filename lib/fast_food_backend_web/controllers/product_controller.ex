@@ -30,6 +30,7 @@ defmodule FastFoodBackendWeb.ProductController do
     product = Products.get_product!(id)
 
     with {:ok, %Product{} = product} <- Products.update_product(product, product_params) do
+      FastFoodBackendWeb.Endpoint.broadcast("product:update", "product_updated", %{"id" => id, "attributes" => product_params})
       render(conn, ProductView, "show.json", %{data: product})
     end
   end
