@@ -9,21 +9,26 @@ defmodule FastFoodBackendWeb.ProductController do
 
   def index(conn, _params) do
     products = Products.list_products()
-    render(conn, ProductView, "index.json", %{data: products})
+    conn
+    |> put_view(ProductView)
+    |> render("index.json", %{data: products})
   end
 
   def create(conn, %{"data" => %{"attributes" => product_params}}) do
     with {:ok, %Product{} = product} <- Products.create_product(product_params) do
       conn
+      |> put_view(ProductView)
       |> put_status(:created)
       |> put_resp_header("location", Routes.product_path(conn, :show, product))
-      |> render(ProductView, "show.json", %{data: product})
+      |> render("show.json", %{data: product})
     end
   end
 
   def show(conn, %{"id" => id}) do
     product = Products.get_product!(id)
-    render(conn, ProductView, "show.json", %{data: product})
+    conn
+    |> put_view(ProductView)
+    |> render("show.json", %{data: product})
   end
 
   def update(conn, %{"id" => id, "data" => %{"attributes" => product_params}}) do
@@ -31,7 +36,10 @@ defmodule FastFoodBackendWeb.ProductController do
 
     with {:ok, %Product{} = product} <- Products.update_product(product, product_params) do
       FastFoodBackendWeb.Endpoint.broadcast("product:update", "product_updated", %{"id" => id, "attributes" => product_params})
-      render(conn, ProductView, "show.json", %{data: product})
+      
+      conn
+      |> put_view(ProductView)
+      |> render("show.json", %{data: product})
     end
   end
 

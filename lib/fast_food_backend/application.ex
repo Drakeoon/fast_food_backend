@@ -6,12 +6,14 @@ defmodule FastFoodBackend.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
       FastFoodBackend.Repo,
       # Start the endpoint when the application starts
       FastFoodBackendWeb.Endpoint,
+      {FastFoodBackendWeb.SignerStrategy, time_interval: 2_000, log_level: :none}
       # Starts a worker by calling: FastFoodBackend.Worker.start_link(arg)
       # {FastFoodBackend.Worker, arg},
     ]

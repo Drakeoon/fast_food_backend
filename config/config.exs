@@ -40,16 +40,3 @@ config :ex_aws,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
-
-config :orders,
-  auth0: %{
-    url: %URI{
-      host: "fastfoodapp.eu.auth0.com",
-      port: 443,
-      scheme: "https"
-    },
-    client_id: "OVhybBKLbedTomYG9zgXPOrWj3UcIYUC",
-    client_secret: "78pJyYu7k3bxV7Rr6N64r7VT0HRXW5cRr9rLAzBBrFz6kpLdnk4hS6StHHEGSE0u",
-    audience: "https://fast-food-sample.com",
-    scope: "read:orders"
-  }
