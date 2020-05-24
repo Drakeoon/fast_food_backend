@@ -4,6 +4,7 @@ defmodule FastFoodBackendWeb.Router do
   pipeline :api do
     plug(JSONAPI.EnsureSpec)
     plug(JSONAPI.UnderscoreParameters)
+    plug(FastFoodBackendWeb.Plug.Auth)
   end
 
   scope "/api", FastFoodBackendWeb do
